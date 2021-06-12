@@ -13,6 +13,7 @@ class CreateTerminalsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('terminals');
         Schema::create('terminals', function (Blueprint $table) {
             $table->id();
             $table->string('name');

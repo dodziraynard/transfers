@@ -21,9 +21,11 @@ class CreateSchedulesTable extends Migration
             $table->timestamp("arrival_time")->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));;
             $table->decimal("price");
             $table->bigInteger('bus_id')->unsigned()->index()->nullable();
-            $table->bigInteger('route_id')->unsigned()->index()->nullable();
-            $table->foreign('bus_id')->references('id')->on('terminals')->onDelete('cascade');
-            $table->foreign('route_id')->references('id')->on('terminals')->onDelete('cascade');
+            $table->bigInteger('destination_id')->unsigned()->index()->nullable();
+            $table->bigInteger('source_id')->unsigned()->index()->nullable();
+            $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
+            $table->foreign('destination_id')->references('id')->on('terminals')->onDelete('cascade');
+            $table->foreign('source_id')->references('id')->on('terminals')->onDelete('cascade');
             $table->timestamps();
         });
     }
