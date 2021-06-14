@@ -13,7 +13,7 @@
             <form action="{{ route('register') }}" method="post">
                 @csrf
                 <div class="mb-4">
-                    <label for="name" class="sr-only">Full Name</label>
+                    <label for="name">Full Name</label>
                     <input type="text" name="name" id="name" placeholder="Full Name"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror"
                         value="{{ old('name') }}" required>
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="contact" class="sr-only">Contact</label>
+                    <label for="contact">Contact</label>
                     <input type="text" name="contact" id="contact" placeholder="Contact"
                         title="Ten digits with a leading 0."
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('contact') border-red-500 @enderror"
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="sr-only">Email</label>
+                    <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Your email"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror"
                         value="{{ old('email') }}" required>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="password" class="sr-only">Password</label>
+                    <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Choose a password"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror"
                         value="" required>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="password_confirmation" class="sr-only">Password again</label>
+                    <label for="password_confirmation">Password again</label>
                     <input type="password" name="password_confirmation" id="password_confirmation"
                         placeholder="Repeat your password"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_confirmation') border-red-500 @enderror"
@@ -85,6 +85,8 @@
                     <button type="submit"
                         class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button>
                 </div>
+
+                <p class="my-5">Already have an account? Login <a class="text-blue-500" href="{{route('login')}}">here.</a></p>
             </form>
         </div>
     </div>

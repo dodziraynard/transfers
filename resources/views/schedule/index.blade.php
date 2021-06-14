@@ -6,9 +6,14 @@
     @if ($schedules->count())
         @foreach ($schedules as $schedule)
             <div class="flex">
-                <p class="mb-2">
-                    {{ $schedule->destination_id }}
+                <p class="mb-2">From 
+                    <strong>{{ $schedule->source->name }}</strong> to 
+                    <strong>{{ $schedule->destination->name}} </strong>
+                    @ {{ $schedule->departure_time }}
+                    <em>[GHC {{$schedule->price}}]</em>
                     <small><a class="mx-3"  href="{{ route('update_schedule', $schedule) }}">Edit</a></small>
+                </p>
+             
                 <form class="inline row confirmation-form" action="{{ route('delete_schedule') }}" method="post">
                     @csrf
                     <input name="id" type="hidden" value="{{ $schedule->id }}">

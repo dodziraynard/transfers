@@ -20,9 +20,10 @@
 
                 <div class="mb-4">
                     <label for="departure_time" class="">Departure Time</label>
-                    <input type="datetime-local" name="departure_time" id="departure_time"
-                        class="js-update-date bg-gray-100 border-2 w-full p-4 rounded-lg @error('departure_time') border-red-500 @enderror"
-                        
+                    <input type="datetime-local" 
+                        name="departure_time" id="departure_time"
+                        class="js-update-date min-date-today bg-gray-100 border-2 w-full p-4 rounded-lg @error('departure_time') border-red-500 @enderror"
+
                         @if(old('departure_time')??'')
                             value="{{ old('departure_time')}}" 
                         @elseif(isset($schedule))
@@ -40,7 +41,7 @@
                 <div class="mb-4">
                     <label for="arrival_time" class="">Estimated Time of Arrival</label>
                     <input type="datetime-local" name="arrival_time" id="arrival_time"
-                        class="js-update-date bg-gray-100 border-2 w-full p-4 rounded-lg @error('arrival_time') border-red-500 @enderror"
+                        class="js-update-date min-date-today bg-gray-100 border-2 w-full p-4 rounded-lg @error('arrival_time') border-red-500 @enderror"
 
                         @if(old('arrival_time'))
                             value="{{ old('arrival_time')}}" 

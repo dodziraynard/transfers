@@ -22,4 +22,19 @@ class Schedule extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function source()
+    {
+        return $this->belongsTo(Terminal::class, 'source_id');
+    }
+
+    public function destination()
+    {
+        return $this->belongsTo(Terminal::class, 'destination_id');
+    }
+
+    public function bus()
+    {
+        return $this->belongsTo(Bus::class, 'bus_id');
+    }
 }

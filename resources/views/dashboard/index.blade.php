@@ -6,4 +6,6 @@
 <p><a href="{{route('bus')}}">Bus</a></p>
 <p><a href="{{route('terminal')}}">Terminal</a></p>
 <p><a href="{{route('schedule')}}">Schedule</a></p>
+<p><a href="{{route('payments')}}">Payment</a></p>
+<p><a href="{{route('bookings')}}">Bookings</a></p>
 @endsection

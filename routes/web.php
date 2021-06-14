@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PaymentAndBookingController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TerminalController;
 
@@ -20,16 +22,25 @@ use App\Http\Controllers\TerminalController;
 |
 */
 
-Route::get('/', function () {return view('index');});
+Route::get('', [ClientController::class, 'index'])->name('home');
+Route::post('/select_schedule', [ClientController::class, 'select_schedule'])->name('select_schedule');
+Route::post('/preview_booking', [ClientController::class, 'preview_booking'])->name('preview_booking');
+Route::post('/payment', [ClientController::class, 'payment'])->name('payment');
+Route::post('/book_me', [ClientController::class, 'book_me'])->name('book_me');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/payments', [PaymentAndBookingController::class, 'payments'])->name('payments');
+Route::get('/bookings', [PaymentAndBookingController::class, 'bookings'])->name('bookings');
 
 Route::get('/auth/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/auth/register', [RegisterController::class, 'register'])->name('register');
-
 Route::get('auth/login', [LoginController::class, 'index'])->name('login');
 Route::post('auth/login', [LoginController::class, 'store']);
 Route::post('/auth/logout', [LogoutController::class, 'logout_user'])->name('logout');
+
+Route::get('/user_payments', [PaymentAndBookingController::class, 'user_payments'])->name('user_payments');
+Route::get('/user_bookings', [PaymentAndBookingController::class, 'user_bookings'])->name('user_bookings');
+
 
 // Bus
 Route::get('/bus', [BusController::class, 'index'])->name('bus');
